@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
 
   cancel() {
     // console.log(this.valuesFromHome);
-    // practice dynamically adding option 
+    // practice dynamically adding option
     // if (this.valuesFromHome.filter(e => e.name === 'value 104').length === 0) {
     //   this.valuesFromHome = [
     //     ...this.valuesFromHome,
