@@ -15,10 +15,16 @@ namespace DatingApp.API.Helpers
                 opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url))
                 .ForMember(dest => dest.Age, opt => 
                 opt.MapFrom(d => (int.Parse(DateTime.Now.ToString("yyyyMMdd")) - int.Parse(d.DateOfBirth.ToString("yyyyMMdd")))/10000));
+            
             CreateMap<User, UserForDetailedDto>()
                 .ForMember(dest => dest.PhotoUrl, opt => 
-                opt.MapFrom(src => src.Photos.FirstOrDefault(url => url.IsMain).Url));
+                opt.MapFrom(src => src.Photos.FirstOrDefault(url => url.IsMain).Url))
+                .ForMember(dest => dest.Age, opt => 
+                opt.MapFrom(d => (int.Parse(DateTime.Now.ToString("yyyyMMdd")) - int.Parse(d.DateOfBirth.ToString("yyyyMMdd")))/10000));
+            
             CreateMap<Photo, PhotosForDetailedDto>();
+            
+            CreateMap<UserForUpdateDto, User>();
         }
     }
 }
