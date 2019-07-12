@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
-import { AltertifyService } from '../_services/altertify.service';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,13 @@ import { AltertifyService } from '../_services/altertify.service';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService,
               private router: Router,
-              private alterify: AltertifyService) {}
+              private alertify: AlertifyService) {}
   canActivate(): boolean {
     if (this.authService.loggedIn()) {
       return true;
     }
 
-    this.alterify.error('You shall not pass!!!');
+    this.alertify.error('You shall not pass!!!');
     this.router.navigate(['/home']);
     return false;
   }
