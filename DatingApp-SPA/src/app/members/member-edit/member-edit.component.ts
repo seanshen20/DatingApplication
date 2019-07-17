@@ -43,6 +43,7 @@ export class MemberEditComponent implements OnInit {
     );
   }
 
+  // redundant, use any to any subscribe auth url obserable
   updateMainPhoto(photoUrl) {
     this.user.photoUrl = photoUrl;
   }
